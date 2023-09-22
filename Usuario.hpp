@@ -10,7 +10,7 @@ class Usuario
      int age;
      //ListaSoftware library;
 
-    protected:
+    public:
         Usuario(string,string,int);
         string getUser();
         string getPass();

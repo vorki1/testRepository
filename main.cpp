@@ -15,5 +15,7 @@ int main()
 
     cout<<admin->getLog()<<endl;
     cout<<endl;
+    
+    delete admin;
     return 0;
 }
