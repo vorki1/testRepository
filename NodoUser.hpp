@@ -48,3 +48,8 @@ void NodoUser::setPrevious(NodoUser* previous)
 {
     this->previous=previous;
 }
+
+NodoUser::~NodoUser()
+{
+    
+}

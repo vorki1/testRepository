@@ -11,7 +11,7 @@ class Software
         ListaUsers* users;
         float price;
 
-    protected:
+    public:
         Software(string,string,int,float);
         string getName();
         string getDeveloper();
