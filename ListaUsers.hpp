@@ -14,6 +14,7 @@ class ListaUsers
         void add(Usuario*);
         bool remove(Usuario*);
         Usuario* searchUser(string);
+        NodoUser* getFirst();
         int getSize();
 
 };
@@ -85,6 +86,10 @@ Usuario* ListaUsers::searchUser(string user)
         current = current->getNext();
     }
     return nullptr;
+}
+NodoUser* ListaUsers::getFirst()
+{
+    return first;
 }
 
 int ListaUsers::getSize()
