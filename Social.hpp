@@ -33,11 +33,11 @@ ListaUsers* Social::getUsers()
 }
 bool Social::addFriend(string name)
 {
-
+    return true;
 }
 bool Social::deleteFriend(string name)
 {
-    
+    return true;
 }
 Social::~Social()
 {

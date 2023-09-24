@@ -71,7 +71,7 @@ bool ListaSoftware:: remove(Software* software)
             return true;
         }
     }
-    
+    return false;
 }
 Software* ListaSoftware::searchUser(string software)
 {

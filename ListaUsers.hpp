@@ -72,7 +72,7 @@ bool ListaUsers:: remove(Usuario* user)
             return true;
         }
     }
-    
+    return false;
 }
 Usuario* ListaUsers::searchUser(string user)
 {
