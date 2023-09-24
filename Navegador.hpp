@@ -6,19 +6,19 @@ using namespace std;
 class Navegador:public Software
 {
     private:
-    string browsingHistory;//Hacer una lista de paginas
+    string browsingHistory[];//Hacer una lista de paginas
     public:
-        Navegador(string,string,int,float,string);
-        string getBrowsingHistory();
+        Navegador(string,string,int,float,string[]);
+        []string getBrowsingHistory();
         void setBrowsingHistory(string);
         ~Navegador();
 };
 
-Navegador::Navegador(string name,string developer,int age,float price,string browsingHistory):Software(name,developer,age,price)
+Navegador::Navegador(string name,string developer,int age,float price,string[] browsingHistory):Software(name,developer,age,price)
 {
-    this->browsingHistory=browsingHistory;
+    *this->browsingHistory=browsingHistory;
 }
-string Navegador::getBrowsingHistory()
+string[] Navegador::getBrowsingHistory()
 {
     return browsingHistory;
 }
