@@ -37,5 +37,5 @@ void Ofimatica::deleteFiles(int files)
 }
 Ofimatica::~Ofimatica()
 {
-    
+    delete(this);
 }

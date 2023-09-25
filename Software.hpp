@@ -31,7 +31,7 @@ Software::Software(string name,string developer,int age,float price)
     this->developer=developer;
     this->age=age;
     this->price=price;
-    //users = new ListaUsers();
+    this->users = new ListaUsers();
 }
 
 string Software::getName()
@@ -69,4 +69,8 @@ void Software::setAge(int age)
 void Software::setPrice(float price)
 {
     this->price=price;
+}
+Software::~Software()
+{
+    delete(this);
 }

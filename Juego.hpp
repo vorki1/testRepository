@@ -28,5 +28,5 @@ void Juego::setCategory(string category)
 }
 Juego::~Juego()
 {
-    
+    delete(this);
 }

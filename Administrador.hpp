@@ -40,5 +40,5 @@ void Administrador::setLog(string log)
 }
 Administrador::~Administrador()
 {
-    
+    delete(this);
 }

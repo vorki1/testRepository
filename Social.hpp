@@ -41,5 +41,5 @@ bool Social::deleteFriend(string name)
 }
 Social::~Social()
 {
-    
+    delete(this);
 }

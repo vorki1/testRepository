@@ -28,5 +28,5 @@ void Produccion::setKind(string kind)
 }
 Produccion::~Produccion()
 {
-    
+    delete(this);
 }

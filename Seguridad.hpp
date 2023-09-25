@@ -28,5 +28,5 @@ void Seguridad::setMalware(string malware)
 }
 Seguridad::~Seguridad()
 {
-    
+    delete(this);
 }

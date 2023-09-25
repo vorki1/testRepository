@@ -1,7 +1,7 @@
 #include <iostream>
 #include "Usuario.hpp"
 #include "Administrador.hpp"
-#include "UsuarioNiño.hpp"
+#include "UsuarioKid.hpp"
 #include "UsuarioNormal.hpp"
 #include "Software.hpp"
 #include "Juego.hpp"
@@ -23,11 +23,11 @@ int main()
     //Se crea un puntero apuntando a un objeto de tipo Administrador de padre Usuario
     Usuario *admin = new Administrador("vorki1","17042000",23,"javier.saldano@alumnos.ucn.cl","alp");
     usuarios->add(admin);
-    //Se crean punteros apuntando a objetos de tipo UsuarioNiño de padre Usuario
-    Usuario*n1 = new UsuarioNiño("Jaime","1234",12);
-    Usuario*n2 = new UsuarioNiño("Marco","abcd",13);
-    Usuario*n3 = new UsuarioNiño("Pedro","efgh",12);
-    Usuario*n4 = new UsuarioNiño("Javier","5678",11);
+    //Se crean punteros apuntando a objetos de tipo UsuarioKid de padre Usuario
+    Usuario*n1 = new UsuarioKid("Jaime","1234",12);
+    Usuario*n2 = new UsuarioKid("Marco","abcd",13);
+    Usuario*n3 = new UsuarioKid("Pedro","efgh",12);
+    Usuario*n4 = new UsuarioKid("Javier","5678",11);
     usuarios->add(n1);
     usuarios->add(n2);
     usuarios->add(n3);

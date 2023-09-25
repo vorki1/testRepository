@@ -29,5 +29,5 @@ void UsuarioNormal::setEmail(string email)
 }
 UsuarioNormal::~UsuarioNormal()
 {
-    
+    delete(this);
 }
