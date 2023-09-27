@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include "Usuario.hpp"
+//#include "Usuario.hpp"
 #include "Administrador.hpp"
 #include "UsuarioKid.hpp"
 #include "UsuarioNormal.hpp"

@@ -11,13 +11,12 @@ class Software
         int age;
         float price;
         vector<Usuario*> users;
-
     public:
         Software(string,string,int,float);
         string getName();
         string getDeveloper();
         int getAge();
-        vector<Usuario*> getUsers();
+        vector<Usuario*> getusers();
         float getPrice();
         void setName(string);
         void setDeveloper(string);
@@ -47,7 +46,7 @@ int Software::getAge()
     return age;
 }
 
-vector<Usuario*> Software::getUsers()
+vector<Usuario*> Software::getusers()
 {
     return users;
 }

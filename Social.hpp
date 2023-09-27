@@ -8,37 +8,33 @@ using namespace std;
 class Social:public Software
 {
     private:
-    int friends;
-    vector<Usuario*> users;//añadir la lista de Users
+        vector<Usuario*> friends;//añadir la lista de friends
     public:
         Social(string,string,int,float);
-        int getFriends();
-        vector<Usuario*> getUsers();
-        bool deleteFriend(string);
-        bool addFriend(string);
+        vector<Usuario*> getfriends();
+        bool deleteFriend(Usuario*);
+        bool addFriend(Usuario*);
         
         ~Social();
 };
 
 Social::Social(string name,string developer,int age,float price):Software(name,developer,age,price)
 {
-    friends=0;
-    users;
+    
 }
-int Social::getFriends()
+
+vector<Usuario*> Social::getfriends()
 {
     return friends;
 }
-vector<Usuario*> Social::getUsers()
+bool Social::addFriend(Usuario* guy)
 {
-    return users;
-}
-bool Social::addFriend(string name)
-{
+    friends.push_back(guy);
     return true;
 }
-bool Social::deleteFriend(string name)
+bool Social::deleteFriend(Usuario* guy)
 {
+    
     return true;
 }
 Social::~Social()
