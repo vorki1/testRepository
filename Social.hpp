@@ -1,18 +1,19 @@
 #pragma once
 #include <iostream>
+#include <vector>
 #include "Software.hpp"
-#include "ListaUsers.hpp"
+#include "Usuario.hpp"
 using namespace std;
 
 class Social:public Software
 {
     private:
     int friends;
-    ListaUsers* users;//añadir la lista de Users
+    vector<Usuario*> users;//añadir la lista de Users
     public:
         Social(string,string,int,float);
         int getFriends();
-        ListaUsers* getUsers();
+        vector<Usuario*> getUsers();
         bool deleteFriend(string);
         bool addFriend(string);
         
@@ -22,12 +23,13 @@ class Social:public Software
 Social::Social(string name,string developer,int age,float price):Software(name,developer,age,price)
 {
     friends=0;
+    users;
 }
 int Social::getFriends()
 {
     return friends;
 }
-ListaUsers* Social::getUsers()
+vector<Usuario*> Social::getUsers()
 {
     return users;
 }

@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
-#include "ListaUsers.hpp"
+#include <vector>
+#include "Usuario.hpp"
 using namespace std;
 
 class Software
@@ -8,15 +9,15 @@ class Software
     private:
         string name,developer;
         int age;
-        ListaUsers* users;
         float price;
+        vector<Usuario*> users;
 
     public:
         Software(string,string,int,float);
         string getName();
         string getDeveloper();
         int getAge();
-        ListaUsers* getUsers();
+        vector<Usuario*> getUsers();
         float getPrice();
         void setName(string);
         void setDeveloper(string);
@@ -31,7 +32,6 @@ Software::Software(string name,string developer,int age,float price)
     this->developer=developer;
     this->age=age;
     this->price=price;
-    this->users = new ListaUsers();
 }
 
 string Software::getName()
@@ -46,7 +46,8 @@ int Software::getAge()
 {
     return age;
 }
-ListaUsers* Software::getUsers()
+
+vector<Usuario*> Software::getUsers()
 {
     return users;
 }

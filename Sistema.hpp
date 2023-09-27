@@ -1,37 +1,36 @@
 #pragma once
 #include <iostream>
-#include "ListaSoftware.hpp"
-#include "ListaUsers.hpp"
+#include <vector>
+#include "Usuario.hpp"
+#include "Software.hpp"
+//#include "ListaSoftware.hpp"
+//#include "ListaUsers.hpp"
 using namespace std;
 
 class Sistema
 {
     private:
-        ListaUsers* users;
-        ListaSoftware* softwars;
+        vector<Usuario*> users;
+        vector<Software*> softwars;
 
     public:
-        Sistema(ListaUsers*,ListaSoftware*);
+        Sistema(vector<Usuario*>,vector<Software*>);
         bool login(string,string);
         bool log(string);//Crear el metodo log
 
 
 };
 
-Sistema::Sistema(ListaUsers* users,ListaSoftware *softwars)
+Sistema::Sistema(vector<Usuario*> users,vector<Software*>softwars)
 {
     this->users=users;
     this->softwars=softwars;
 }
 bool Sistema::login(string user,string pass)
 {
-    NodoUser* current = users->getFirst();
-    while(current!=nullptr)
+    for (int i = 0; i < users.size(); i++)
     {
-        if(current->getUserN()->getUser().compare(user) && current->getUserN()->getPass().compare(pass))
-        {
-            return true;
-        }
+        if(users[i]->getUser().compare(user)&& users[i]->getPass().compare(pass))return true;
     }
     return false;
 }

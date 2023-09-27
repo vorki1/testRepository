@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include "NodoUser.hpp"
+#include "Usuario.hpp"
 using namespace std;
 
 class ListaUsers
@@ -33,14 +34,19 @@ void ListaUsers:: add(Usuario* user)
     {
         first = current;
         last = current;
+        size++;
+        return;
     }
     else
     {
         first->setPrevious(current);
         current->setNext(first);
         first = current;
+        size++;
+        return;
     }
-    size++;
+    return;
+    
 }
 bool ListaUsers:: remove(Usuario* user)
 {
