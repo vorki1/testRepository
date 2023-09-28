@@ -1,7 +1,7 @@
 #pragma once
 #include <iostream>
 #include <vector>
-#include "Software.hpp"
+class Software;
 using namespace std;
 
 class Usuario

@@ -30,7 +30,11 @@ bool Sistema::login(string user,string pass)
 {
     for (int i = 0; i < users.size(); i++)
     {
-        if(users[i]->getUser().compare(user)&& users[i]->getPass().compare(pass))return true;
+        if(users[i]->getUser().compare(user) == 0 && users[i]->getPass().compare(pass) == 0)
+        {
+            return true;
+        }
+        
     }
     return false;
 }

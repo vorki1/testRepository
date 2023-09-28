@@ -1,7 +1,7 @@
 #pragma once
 #include <iostream>
 #include <vector>
-#include "Usuario.hpp"
+#include "Usuario.hpp"//Dependencia circular
 using namespace std;
 
 class Software

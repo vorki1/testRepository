@@ -152,42 +152,51 @@ int main()
     Sistema* sistem = new Sistema(usuarios,softwars);
     
     string user,pass;
-    cout<<"Ingrese el usuario: ";cin>>user;
+    cout<<"Ingrese su usuario: ";cin>>user;
     cout<<"Ingrese la contraseña: ";cin>>pass;
-    bool login =sistem->login(user,pass);
+    bool loginC =sistem->login(user,pass);
     int opcion;
     bool banderaExt = true;
     do
     {
-        if(login){
-        
-        cout<<"Ingrese una opcion: ";
-        cout<<"opcion '0': SALIR"<<endl;
-        cin>>opcion;
-        do
+        if(loginC)
         {
-            switch(opcion)
+            cout<<"Acceso correcto"<<endl;
+            do
             {
-                case 1:
-                    break;
-                case 2:
-                    break;
-                case 3:
-                    break;
-                case 0:
-                    cout<<"Ha salido del programa";
-                    
+                cout<<"Ingrese una opcion(0 para salir): ";cin>>opcion;
+                switch(opcion)
+                {
+                    case 1:
+                        //Accion n°1
+                        break;
+                    case 2:
+                        //Accion n°2
+                        break;
+                    case 3:
+                        //Accion n°3
+                        break;
+                    case 0:
+                        
+                        cout<<"Ha salido del programa"<<endl;
+                        break;
+                    default:
+                        cout<<"Ingrese una opción valida"<<endl;
+                        break;
+                }
             }
+            while(opcion!=0);
         }
-        while(opcion!=0);
-    }
-    else{
-        cout<<"Usuario incorrecto";
-        cout<<"Salir del programa: 0";
-        cout<<"Ingresar nuevo usuario: pulse cualquier otro digito";
-        cin>>opcion;
-        if(opcion==0)banderaExt=false;
-    }
+        else cout<<"Usuario incorrecto"<<endl;
+        
+        cout<<"¿Quiere salir del sistema?:(0 para salir) ";cin>>opcion;
+        if(opcion ==0)banderaExt=false;
+        else
+        {
+            cout<<"Ingrese su usuario: ";cin>>user;
+            cout<<"Ingrese la contraseña: ";cin>>pass;
+        }
+
     } while (banderaExt);
     
     
