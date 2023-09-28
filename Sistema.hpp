@@ -16,6 +16,7 @@ class Sistema
     public:
         Sistema(vector<Usuario*>,vector<Software*>);
         bool login(string,string);
+        bool agregarSoftware(string,string);
         bool log(string);//Crear el metodo log
 
 
@@ -37,4 +38,44 @@ bool Sistema::login(string user,string pass)
         
     }
     return false;
+}
+bool Sistema::agregarSoftware(string user,string software)
+{
+    Usuario* u;
+    for (int i = 0; i < users.size(); i++)
+    {
+        if(users[i]->getUser().compare(user)==0)
+        {
+            u = users[i];
+            break;
+        }
+    }
+
+    Software* s;
+    for (int i = 0; i < softwars.size(); i++)
+    {
+        if(softwars[i]->getName().compare(software)==0)
+        {
+            s = softwars[i];
+            cout<<softwars[i]->getName()<<endl;
+            break;
+        }
+    }
+    cout<<"Hola"<<endl;
+    if(s==nullptr)return false;
+    if(s->getAge()<18)
+    {
+        u->getLibrary().push_back(s);
+        return true;
+    }
+    else if(s->getAge()>=18 && u->getAge()>=18)
+    {
+        u->getLibrary().push_back(s);
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+    
 }

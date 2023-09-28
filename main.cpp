@@ -39,15 +39,15 @@ int main()
     usuarios.push_back(n4);
     //Se crean punteros apuntando a objetos de tipo UsuarioNormal de padre Usuario
     Usuario*user1= new UsuarioNormal("Gemi","2023",24,"gemi123@gmail.com");
-    Usuario*user2= new UsuarioNormal("Juan","2123",24,"gemi123@gmail.com");
-    Usuario*user3= new UsuarioNormal("Gomez","2223",24,"gemi123@gmail.com");
-    Usuario*user4= new UsuarioNormal("Hadott","2323",24,"gemi123@gmail.com");
-    Usuario*user5= new UsuarioNormal("Break","2423",24,"gemi123@gmail.com");
-    Usuario*user6= new UsuarioNormal("Pinki","2523",24,"gemi123@gmail.com");
-    Usuario*user7= new UsuarioNormal("Monita","2623",24,"gemi123@gmail.com");
-    Usuario*user8= new UsuarioNormal("Pokefabi","2723",24,"gemi123@gmail.com");
-    Usuario*user9= new UsuarioNormal("Baxvun","2823",24,"gemi123@gmail.com");
-    Usuario*user10= new UsuarioNormal("Bato","2923",24,"gemi123@gmail.com");
+    Usuario*user2= new UsuarioNormal("Juan","2123",21,"paco23@gmail.com");
+    Usuario*user3= new UsuarioNormal("Gomez","2223",25,"perla3@gmail.com");
+    Usuario*user4= new UsuarioNormal("Hadott","2323",26,"hameon23@gmail.com");
+    Usuario*user5= new UsuarioNormal("Break","2423",19,"brikini123@gmail.com");
+    Usuario*user6= new UsuarioNormal("Pinki","2523",18,"pakito@gmail.com");
+    Usuario*user7= new UsuarioNormal("Monita","2623",25,"mijitak@gmail.com");
+    Usuario*user8= new UsuarioNormal("Pokefabi","2723",21,"pakit3@gmail.com");
+    Usuario*user9= new UsuarioNormal("Baxvun","2823",22,"boltron3@gmail.com");
+    Usuario*user10= new UsuarioNormal("bato","2923",24,"loco23@gmail.com");
     usuarios.push_back(user1);
     usuarios.push_back(user2);
     usuarios.push_back(user3);
@@ -63,7 +63,7 @@ int main()
     vector<Software*>softwars;
     //Se crean punteros apuntando a objetos de tipo Juego de padre Software
     vector<string> categorys = {"acción","aventura","arcade","deportes","estrategia","simulación","terror","musicales","rpg","moba"};
-    Software *j1 = new Juego("God of war","Pepito pelado",18,40000,categorys[0]);//
+    Software *j1 = new Juego("kratos","Pepito pelado",18,40000,categorys[0]);//
     Software *j2 = new Juego("Just dance 3","Maria antonieta",7,2000,categorys[7]);//
     Software *j3 = new Juego("The legend of zelda ocarina of time","Wili wili",7,1000,categorys[1]);//
     Software *j4 = new Juego("League of legends","Miyamoto",7,23000,categorys[9]);//
@@ -156,6 +156,7 @@ int main()
     cout<<"Ingrese la contraseña: ";cin>>pass;
     bool loginC =sistem->login(user,pass);
     int opcion;
+    string software;
     bool banderaExt = true;
     do
     {
@@ -164,14 +165,24 @@ int main()
             cout<<"Acceso correcto"<<endl;
             do
             {
-                cout<<"Ingrese una opcion(0 para salir): ";cin>>opcion;
+                cout<<"Ingrese una opción: "<<endl;
+                cout<<"1) Desea agregar un Software?"<<endl;
+                cout<<"2) Desea eliminar un Software?"<<endl;
+                cout<<"0 para salir: ";cin>>opcion;
                 switch(opcion)
                 {
                     case 1:
-                        //Accion n°1
+                        cout<<"Ingrese el nombre del software: ";cin>>software;
+                        if(sistem->agregarSoftware(user,software))
+                        {
+                            cout<<"Se ha añadido correctamente el Software!"<<endl;
+                        }
+                        else{
+                            cout<<"No se ha encontrado la edad requerida o no es mayor de edad"<<endl;
+                        }
                         break;
                     case 2:
-                        //Accion n°2
+                        //Eliminar Software
                         break;
                     case 3:
                         //Accion n°3
