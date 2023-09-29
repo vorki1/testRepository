@@ -177,16 +177,28 @@ int main()
                         {
                             cout<<"Se ha añadido correctamente el Software!"<<endl;
                         }
-                        else{
+                        else
+                        {
                             cout<<"No se ha encontrado la edad requerida o no es mayor de edad"<<endl;
                         }
                         break;
+
                     case 2:
-                        //Eliminar Software
+                        cout<<"Ingrese el nombre del software: ";cin>>software;
+                        if(sistem->eliminarSoftware(user,software))
+                        {
+                            cout<<"Se ha eliminado correctamente el Software!"<<endl;
+                        }
+                        else
+                        {
+                            cout<<"No se ha encontrado el Software"<<endl;
+                        }
                         break;
+
                     case 3:
-                        //Accion n°3
+                        //Revisar el estado del software (log)
                         break;
+
                     case 0:
                         
                         cout<<"Ha salido del programa"<<endl;
@@ -200,7 +212,8 @@ int main()
         }
         else cout<<"Usuario incorrecto"<<endl;
         
-        cout<<"¿Quiere salir del sistema?:(0 para salir) ";cin>>opcion;
+        cout<<"¿Quiere salir del sistema?:(0 para salir) "<<endl;
+        cout<<"Cualquier otro numero para seguir: ";cin>>opcion;
         if(opcion ==0)banderaExt=false;
         else
         {
