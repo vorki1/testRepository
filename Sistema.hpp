@@ -109,7 +109,7 @@ bool Sistema::eliminarSoftware(string user,string software)
         }
         
         if(s==nullptr)return false;
-
+        cout<<u->getLibrary().size();
         for (int i = 0; i < u->getLibrary().size(); i++)
         {
             if(u->getLibrary()[i]->getName().compare(software)==0)
