@@ -84,6 +84,7 @@ bool Sistema::agregarSoftware(string user,string software)
     {
         cout<<"mayor18"<<endl;
         u->getLibrary().push_back(s);
+        cout<<u->getLibrary()[0]<<endl;
         return true;
     }
     else
