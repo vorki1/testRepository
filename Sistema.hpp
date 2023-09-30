@@ -59,10 +59,10 @@ bool Sistema::agregarSoftware(string user,string software)
         if(softwars[i]->getName().compare(software)==0)
         {
             s = softwars[i];
-            cout<<softwars[i]->getName()<<endl;
             break;
         }
     }
+    
     if(s==nullptr)return false;
     if(s->getAge()<18)
     {
@@ -74,6 +74,7 @@ bool Sistema::agregarSoftware(string user,string software)
     {
         cout<<"mayor18"<<endl;
         u->getLibrary().push_back(s);
+        cout<<u->getLibrary()[0]<<endl;
         return true;
     }
     else
