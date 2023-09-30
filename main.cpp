@@ -154,7 +154,7 @@ int main()
     string user,pass;
     cout<<"Ingrese su usuario: ";cin>>user;
     cout<<"Ingrese la contraseña: ";cin>>pass;
-    bool loginC =sistem->login(user,pass);
+    bool loginC = sistem->login(user,pass);
     int opcion;
     string software;
     bool banderaExt = true;
@@ -168,6 +168,7 @@ int main()
                 cout<<"Ingrese una opción: "<<endl;
                 cout<<"1) Desea agregar un Software?"<<endl;
                 cout<<"2) Desea eliminar un Software?"<<endl;
+                cout<<"3) Conocer la información de un Software?(Solo admin):"<<endl;
                 cout<<"0 para salir: ";cin>>opcion;
                 switch(opcion)
                 {
@@ -196,7 +197,7 @@ int main()
                         break;
 
                     case 3:
-                        //Revisar el estado del software (log)
+                        if(sistem->log(user));//Mejorar log
                         break;
 
                     case 0:

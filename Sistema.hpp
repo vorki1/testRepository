@@ -13,7 +13,7 @@ class Sistema
     private:
         vector<Usuario*> users;
         vector<Software*> softwars;
-
+        //Usuario* buscarUser(string,vector<Usuario*>);
     public:
         Sistema(vector<Usuario*>,vector<Software*>);
         bool login(string,string);
@@ -23,6 +23,33 @@ class Sistema
 
 
 };
+
+Usuario* buscarUser(string user,vector<Usuario*> users)
+{
+    Usuario* u;
+    for (int i = 0; i < users.size(); i++)
+    {
+        if(users[i]->getUser().compare(user)==0)
+        {
+            u = users[i];
+            return u;
+        }
+    }
+    return nullptr;
+}
+Software* buscarSoftware(string software, vector<Software*> softwars)
+{
+    Software* s;
+    for (int i = 0; i < softwars.size(); i++)
+    {
+        if(softwars[i]->getName().compare(software)==0)
+        {
+            s = softwars[i];
+            return s;
+        }
+    }
+    return nullptr;
+}
 
 Sistema::Sistema(vector<Usuario*> users,vector<Software*>softwars)
 {
@@ -43,27 +70,10 @@ bool Sistema::login(string user,string pass)
 }
 bool Sistema::agregarSoftware(string user,string software)
 {
-    Usuario* u;
-    for (int i = 0; i < users.size(); i++)
-    {
-        if(users[i]->getUser().compare(user)==0)
-        {
-            u = users[i];
-            break;
-        }
-    }
-
-    Software* s;
-    for (int i = 0; i < softwars.size(); i++)
-    {
-        if(softwars[i]->getName().compare(software)==0)
-        {
-            s = softwars[i];
-            cout<<softwars[i]->getName()<<endl;
-            break;
-        }
-    }
+    Usuario* u = buscarUser(user,users);
+    Software* s= buscarSoftware(software,softwars);
     if(s==nullptr)return false;
+
     if(s->getAge()<18)
     {
         cout<<"menor18"<<endl;
@@ -84,32 +94,17 @@ bool Sistema::agregarSoftware(string user,string software)
 }
 bool Sistema::eliminarSoftware(string user,string software)
     {
-        Usuario* u;
-        for (int i = 0; i < users.size(); i++)
-        {
-            if(users[i]->getUser().compare(user)==0)
-            {
-                u = users[i];
-                break;
-            }
-        }
+        Usuario* u = buscarUser(user,users);
+        Software* s = buscarSoftware(software,softwars);
+        if(s==nullptr)return false;
 
-        Software* s;
-        for (int i = 0; i < softwars.size(); i++)
-        {
-            if(softwars[i]->getName().compare(software)==0)
-            {
-                s = softwars[i];
-                break;
-            }
-        }
         for (int i = 0; i < u->getLibrary().size(); i++)
         {
             cout<<u->getLibrary()[i];
         }
         
         if(s==nullptr)return false;
-        cout<<u->getLibrary().size();
+        cout<<u->getLibrary().size()<<endl;
         for (int i = 0; i < u->getLibrary().size(); i++)
         {
             if(u->getLibrary()[i]->getName().compare(software)==0)
@@ -126,3 +121,9 @@ bool Sistema::eliminarSoftware(string user,string software)
         cout<<"Gato"<<endl;
         return false;
     }
+bool Sistema::log(string user)
+{
+    //Administrador* u = (cast)buscarUser(user,users);
+    //if(! u. instanceof Admin)return false;
+    return true;
+}
