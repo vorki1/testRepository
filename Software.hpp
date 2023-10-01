@@ -22,7 +22,7 @@ class Software
         void setDeveloper(string);
         void setAge(int);
         void setPrice(float);
-        ~Software();
+        virtual ~Software();
 };
 
 Software::Software(string name,string developer,int age,float price)

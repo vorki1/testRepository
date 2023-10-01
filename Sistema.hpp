@@ -4,6 +4,7 @@
 #include <algorithm>
 #include "Usuario.hpp"
 #include "Software.hpp"
+#include "Administrador.hpp"
 //#include "ListaSoftware.hpp"
 //#include "ListaUsers.hpp"
 using namespace std;
@@ -19,7 +20,7 @@ class Sistema
         bool login(string,string);
         bool agregarSoftware(string,string);
         bool eliminarSoftware(string,string);
-        bool log(string);//Crear el metodo log
+        void log(string);//Crear el metodo log
 
 
 };
@@ -77,14 +78,16 @@ bool Sistema::agregarSoftware(string user,string software)
     if(s->getAge()<18)
     {
         cout<<"menor18"<<endl;
-        u->getLibrary().push_back(s);
+        u->getLibrary().push_back(s);//Añade un software al usuario
+        s->getUsers().push_back(u);//Añade un usuario al software
         return true;
     }
     else if(s->getAge()>=18 && u->getAge()>=18)
     {
         cout<<"mayor18"<<endl;
-        u->getLibrary().push_back(s);
-        cout<<u->getLibrary()[0]<<endl;
+        u->getLibrary().push_back(s);//Añade un software al usuario
+        s->getUsers().push_back(u);//Añade un usuario al software
+        //cout<<u->getLibrary()[0]<<endl;
         return true;
     }
     else
@@ -122,9 +125,42 @@ bool Sistema::eliminarSoftware(string user,string software)
         cout<<"Gato"<<endl;
         return false;
     }
-bool Sistema::log(string user)
+void Sistema::log(string user)
 {
-    //Administrador* u = (cast)buscarUser(user,users);
-    //if(! u. instanceof Admin)return false;
-    return true;
+    Usuario *u = buscarUser(user,users);
+    Administrador* admin;
+    if (admin = dynamic_cast<Administrador*>(u)) {//retorna un puntero nullo
+        cout << admin->getLog() << endl;
+        cout << "es un admin" << endl;
+    } else {
+        cout << "Solo los administradores estan autorizados" << endl;
+        return;
+    }
+    string log;
+    cout << "Ingrese la clave del log" << endl;cin>>log;
+    if(admin->getLog().compare(log)==0)
+    {
+        cout << "Acceso concedido" << endl;
+    }
+    else
+    {
+        cout << "Contraseña equivocada, retorna al inicio..." << endl;
+        return;
+    }
+    string software;
+    cout << "Ingrese el nombre del Software" << endl;cin>>software;
+    Software* s = buscarSoftware(software,softwars);
+    if(s==nullptr)
+    {
+        cout<<"No existe el Software, retorna al inicio..."<<endl;
+        return;
+    }
+    else
+    {
+        for (int i = 0; i < s->getUsers().size(); i++)
+        {
+            cout<<s->getUsers()[i]->getUser()<<endl;
+        }
+        return;
+    }
 }

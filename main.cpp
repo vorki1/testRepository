@@ -26,13 +26,13 @@ int main()
      
     //Base de datos:
     //Se crea un puntero apuntando a un objeto de tipo Administrador de padre Usuario
-    Usuario *admin = new Administrador("vorki1","17042000",23,"javier.saldano@alumnos.ucn.cl","alp");
+    Usuario *admin = new Administrador("Javier","1122",23,"javier.saldano@alumnos.ucn.cl","alp");
     usuarios.push_back(admin);
     //Se crean punteros apuntando a objetos de tipo UsuarioKid de padre Usuario
     Usuario*n1 = new UsuarioKid("jaime","1234",12);
     Usuario*n2 = new UsuarioKid("Marco","abcd",13);
     Usuario*n3 = new UsuarioKid("Pedro","efgh",12);
-    Usuario*n4 = new UsuarioKid("Javier","5678",11);
+    Usuario*n4 = new UsuarioKid("vorki1","5678",11);
     usuarios.push_back(n1);
     usuarios.push_back(n2);
     usuarios.push_back(n3);
@@ -169,7 +169,7 @@ int main()
                 cout<<"1) Desea agregar un Software?"<<endl;
                 cout<<"2) Desea eliminar un Software?"<<endl;
                 cout<<"3) Conocer la información de un Software?(Solo admin):"<<endl;
-                cout<<"0 para salir: ";cin>>opcion;
+                cout<<"0) Salir: ";cin>>opcion;
                 switch(opcion)
                 {
                     case 1:
@@ -197,7 +197,8 @@ int main()
                         break;
 
                     case 3:
-                        if(sistem->log(user));//Mejorar log
+                        
+                        sistem->log(user);
                         break;
 
                     case 0:

@@ -20,7 +20,7 @@ class Usuario
         void setUser(string);
         void setPass(string);
         void setAge(int);
-        ~Usuario();
+        virtual ~Usuario();
 };
 
 Usuario::Usuario(string user,string pass,int age)
