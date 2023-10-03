@@ -103,6 +103,17 @@ int main()
     softwars.push_back(j18);
     softwars.push_back(j19);
     softwars.push_back(j20);
+    //Añadir softwars a los usuarios menores de edad
+    n1->getLibrary().push_back(j2);n1->getLibrary().push_back(j3);
+    n2->getLibrary().push_back(j6);n2->getLibrary().push_back(j10);
+    n3->getLibrary().push_back(j10);n3->getLibrary().push_back(j11);
+    n4->getLibrary().push_back(j20);n4->getLibrary().push_back(j13);
+    //Añadir softwars a los usuarios 
+    user1->getLibrary().push_back(j6);user1->getLibrary().push_back(j2);
+    user2->getLibrary().push_back(j2);user2->getLibrary().push_back(j6);
+    user3->getLibrary().push_back(j8);user3->getLibrary().push_back(j8);
+    user4->getLibrary().push_back(j9);user4->getLibrary().push_back(j9);
+    
     //Se crean punteros apuntando a objetos de tipo Ofimatica de padre Software
     Software *o1 = new Ofimatica("Excel","Charlye Microsoft",8,2000,4);
     Software *o2 = new Ofimatica("Power Point","Maite Microsoft",8,3000,6);
@@ -149,8 +160,16 @@ int main()
     softwars.push_back(so1);
     softwars.push_back(so2);
 
-    Sistema* sistem = new Sistema(usuarios,softwars);
+    //Añadir softwars a los usuarios 
+    user5->getLibrary().push_back(o1);user5->getLibrary().push_back(j15);
+    user6->getLibrary().push_back(so1);user6->getLibrary().push_back(s1);
+    user7->getLibrary().push_back(s2);user7->getLibrary().push_back(p1);
+    user8->getLibrary().push_back(j4);user8->getLibrary().push_back(o2);
+    user9->getLibrary().push_back(na1);user9->getLibrary().push_back(s3);
+    user10->getLibrary().push_back(na2);user10->getLibrary().push_back(so1);
     
+    
+    Sistema* sistem = new Sistema(usuarios,softwars);
     string user,pass;
     cout<<"Ingrese su usuario: ";cin>>user;
     cout<<"Ingrese la contraseña: ";cin>>pass;

@@ -10,6 +10,7 @@ class Usuario
      string user,pass;
      int age;
      vector<Software*> library;
+     int money;
 
     public:
         Usuario(string,string,int);
@@ -17,6 +18,7 @@ class Usuario
         string getPass();
         int getAge();
         vector<Software*> getLibrary();
+        int getDinero();
         void setUser(string);
         void setPass(string);
         void setAge(int);
@@ -29,6 +31,7 @@ Usuario::Usuario(string user,string pass,int age)
     this->pass=pass;
     this->age=age;
     this->library;
+    this->money = 100000;
 }
 
 string Usuario::getUser()
@@ -46,6 +49,10 @@ int Usuario::getAge()
 vector<Software*> Usuario::getLibrary()
 {
     return library;
+}
+int Usuario::getDinero()
+{
+    return money;
 }
 void Usuario::setUser(string user)
 {
