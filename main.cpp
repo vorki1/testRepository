@@ -21,10 +21,9 @@ using namespace std;
 int main()
 {
     
-    //ListaUsers *usuarios = new ListaUsers();
     vector<Usuario*> usuarios;
      
-    //Base de datos:
+    //---------------------------Base de datos------------------------------------------------------
     //Se crea un puntero apuntando a un objeto de tipo Administrador de padre Usuario
     Usuario *admin = new Administrador("Javier","1122",23,"javier.saldano@alumnos.ucn.cl","alp");
     usuarios.push_back(admin);
@@ -59,7 +58,6 @@ int main()
     usuarios.push_back(user9);
     usuarios.push_back(user10);
 
-    //ListaSoftware *softwars = new ListaSoftware();
     vector<Software*>softwars;
     //Se crean punteros apuntando a objetos de tipo Juego de padre Software
     vector<string> categorys = {"acción","aventura","arcade","deportes","estrategia","simulación","terror","musicales","rpg","moba"};
@@ -103,16 +101,6 @@ int main()
     softwars.push_back(j18);
     softwars.push_back(j19);
     softwars.push_back(j20);
-    //Añadir softwars a los usuarios menores de edad
-    n1->getLibrary().push_back(j2);n1->getLibrary().push_back(j3);
-    n2->getLibrary().push_back(j6);n2->getLibrary().push_back(j10);
-    n3->getLibrary().push_back(j10);n3->getLibrary().push_back(j11);
-    n4->getLibrary().push_back(j20);n4->getLibrary().push_back(j13);
-    //Añadir softwars a los usuarios 
-    user1->getLibrary().push_back(j6);user1->getLibrary().push_back(j2);
-    user2->getLibrary().push_back(j2);user2->getLibrary().push_back(j6);
-    user3->getLibrary().push_back(j8);user3->getLibrary().push_back(j8);
-    user4->getLibrary().push_back(j9);user4->getLibrary().push_back(j9);
     
     //Se crean punteros apuntando a objetos de tipo Ofimatica de padre Software
     Software *o1 = new Ofimatica("Excel","Charlye Microsoft",8,2000,4);
@@ -126,10 +114,10 @@ int main()
     softwars.push_back(o4);
     softwars.push_back(o5);
     //Se crean punteros apuntando a objetos de tipo Producción de padre Software
-    Software *p1 = new Produccion("GarageBand","Fabi MacOS",10,3000,"musica");
-    Software *p2 = new Produccion("Photoshop","Marcus Marcus",10,5000,"imagenes");
-    Software *p3 = new Produccion("ShotCut","Piter Pankeiks",10,4000,"video");
-    Software *p4 = new Produccion("Window movie maker","Marilin Madison",10,3500,"video");
+    Software *p1 = new Produccion("GarageBand","Fabi MacOS",18,3000,"musica");
+    Software *p2 = new Produccion("Photoshop","Marcus Marcus",18,5000,"imagenes");
+    Software *p3 = new Produccion("ShotCut","Piter Pankeiks",18,4000,"video");
+    Software *p4 = new Produccion("Window movie maker","Marilin Madison",18,3500,"video");
     softwars.push_back(p1);
     softwars.push_back(p2);
     softwars.push_back(p3);
@@ -148,6 +136,8 @@ int main()
     Software *s4 = new Seguridad("Rootkick","Warsap",0,7000,"Rootkits");
     Software *s5 = new Seguridad("Gusankick","Altraz",0,30000,"Gusanos");
     Software *s6 = new Seguridad("Troyankick","Pertan",0,40000,"Troyanos");
+    admin->getLibrary().push_back(s1);admin->getLibrary().push_back(s2);admin->getLibrary().push_back(s3);
+    admin->getLibrary().push_back(s4);admin->getLibrary().push_back(s5);admin->getLibrary().push_back(s6);
     softwars.push_back(s1);
     softwars.push_back(s2);
     softwars.push_back(s3);
@@ -160,21 +150,73 @@ int main()
     softwars.push_back(so1);
     softwars.push_back(so2);
 
-    //Añadir softwars a los usuarios 
-    user5->getLibrary().push_back(o1);user5->getLibrary().push_back(j15);
-    user6->getLibrary().push_back(so1);user6->getLibrary().push_back(s1);
-    user7->getLibrary().push_back(s2);user7->getLibrary().push_back(p1);
-    user8->getLibrary().push_back(j4);user8->getLibrary().push_back(o2);
-    user9->getLibrary().push_back(na1);user9->getLibrary().push_back(s3);
-    user10->getLibrary().push_back(na2);user10->getLibrary().push_back(so1);
     
+    //Añadir software social so1 a cada usuario
+    n1->getLibrary().push_back(so1);n2->getLibrary().push_back(so1);n3->getLibrary().push_back(so1);n4->getLibrary().push_back(so1);
+    user1->getLibrary().push_back(so1);user2->getLibrary().push_back(so1);user3->getLibrary().push_back(so1);user4->getLibrary().push_back(so1);
+    user5->getLibrary().push_back(so1);user6->getLibrary().push_back(so1);user7->getLibrary().push_back(so1);user8->getLibrary().push_back(so1);
+    user9->getLibrary().push_back(so1);user10->getLibrary().push_back(so1);
+    
+    /*
+    //añadir amigos a cada usuario excepto el admin
+    Social* social1 = dynamic_cast<Social*>(n1->getLibrary()[0]);
+    Social* social2 = dynamic_cast<Social*>(n2->getLibrary()[0]);
+    Social* social3 = dynamic_cast<Social*>(n3->getLibrary()[0]);
+    Social* social4 = dynamic_cast<Social*>(n4->getLibrary()[0]);
+    
+    social1->getfriends().push_back(n2);social1->getfriends().push_back(n3);
+    social2->getfriends().push_back(n3);social2->getfriends().push_back(n4);
+    social3->getfriends().push_back(n4);social3->getfriends().push_back(n1);
+    social4->getfriends().push_back(n1);social4->getfriends().push_back(n2);
+    
+    Social*u1 = dynamic_cast<Social*>(user1->getLibrary()[0]);
+    Social*u2 = dynamic_cast<Social*>(user1->getLibrary()[0]);
+    Social*u3 = dynamic_cast<Social*>(user1->getLibrary()[0]);
+    Social*u4 = dynamic_cast<Social*>(user1->getLibrary()[0]);
+    Social*u5 = dynamic_cast<Social*>(user1->getLibrary()[0]);
+    Social*u6 = dynamic_cast<Social*>(user1->getLibrary()[0]);
+    Social*u7 = dynamic_cast<Social*>(user1->getLibrary()[0]);
+    Social*u8 = dynamic_cast<Social*>(user1->getLibrary()[0]);
+    Social*u9 = dynamic_cast<Social*>(user1->getLibrary()[0]);
+    Social*u10 = dynamic_cast<Social*>(user1->getLibrary()[0]);
+
+    u1->getfriends().push_back(user2);u1->getfriends().push_back(user3);
+    u2->getfriends().push_back(user3);u2->getfriends().push_back(user4);
+    u3->getfriends().push_back(user4);u3->getfriends().push_back(user5);
+    u4->getfriends().push_back(user5);u4->getfriends().push_back(user6);
+    u5->getfriends().push_back(user6);u5->getfriends().push_back(user7);
+    u6->getfriends().push_back(user7);u6->getfriends().push_back(user8);
+    u7->getfriends().push_back(user8);u7->getfriends().push_back(user9);
+    u8->getfriends().push_back(user9);u8->getfriends().push_back(user10);
+    u9->getfriends().push_back(user10);u9->getfriends().push_back(user1);
+    u10->getfriends().push_back(user1);u10->getfriends().push_back(user2);
+    */
+
+    //Añadir softwars a los usuarios menores de edad
+    n1->getLibrary().push_back(j2);n1->getLibrary().push_back(j3);
+    n2->getLibrary().push_back(j6);n2->getLibrary().push_back(j10);
+    n3->getLibrary().push_back(j10);n3->getLibrary().push_back(j11);
+    n4->getLibrary().push_back(j20);n4->getLibrary().push_back(j13);
+    //Añadir softwars a los usuarios 
+    user1->getLibrary().push_back(j6);user1->getLibrary().push_back(j2);
+    user2->getLibrary().push_back(j2);user2->getLibrary().push_back(j6);
+    user3->getLibrary().push_back(j8);user3->getLibrary().push_back(j8);
+    user4->getLibrary().push_back(j9);user4->getLibrary().push_back(j9);
+    user5->getLibrary().push_back(o1);user5->getLibrary().push_back(j15);
+    user6->getLibrary().push_back(j1);user6->getLibrary().push_back(j2);
+    user7->getLibrary().push_back(j2);user7->getLibrary().push_back(p1);
+    user8->getLibrary().push_back(j4);user8->getLibrary().push_back(o2);
+    user9->getLibrary().push_back(na1);user9->getLibrary().push_back(na1);
+    user10->getLibrary().push_back(na2);user10->getLibrary().push_back(na2);
     
     Sistema* sistem = new Sistema(usuarios,softwars);
+
+    //Login
     string user,pass;
     cout<<"Ingrese su usuario: ";cin>>user;
     cout<<"Ingrese la contraseña: ";cin>>pass;
     bool loginC = sistem->login(user,pass);
-    int opcion;
+    int option;
     string software;
     bool banderaExt = true;
     do
@@ -188,8 +230,8 @@ int main()
                 cout<<"1) Desea agregar un Software?"<<endl;
                 cout<<"2) Desea eliminar un Software?"<<endl;
                 cout<<"3) Conocer la información de un Software?(Solo admin):"<<endl;
-                cout<<"0) Salir: ";cin>>opcion;
-                switch(opcion)
+                cout<<"0) Salir: ";cin>>option;
+                switch(option)
                 {
                     case 1:
                         cout<<"Ingrese el nombre del software: ";cin>>software;
@@ -229,13 +271,13 @@ int main()
                         break;
                 }
             }
-            while(opcion!=0);
+            while(option!=0);
         }
         else cout<<"Usuario incorrecto"<<endl;
         
         cout<<"¿Quiere salir del sistema?:(0 para salir) "<<endl;
-        cout<<"Cualquier otro numero para seguir: ";cin>>opcion;
-        if(opcion ==0)banderaExt=false;
+        cout<<"Cualquier otro numero para seguir: ";cin>>option;
+        if(option==0)banderaExt=false;
         else
         {
             cout<<"Ingrese su usuario: ";cin>>user;
@@ -243,7 +285,7 @@ int main()
         }
 
     } while (banderaExt);
-    
-    
+
+   
     return 0;
 }

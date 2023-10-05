@@ -74,7 +74,16 @@ bool Sistema::agregarSoftware(string user,string software)
     Usuario* u = buscarUser(user,users);
     Software* s= buscarSoftware(software,softwars);
     if(s==nullptr)return false;
-
+    Administrador* admin;
+    Seguridad * seguridad;
+    if(admin != dynamic_cast<Administrador*>(u))
+    {
+        if(seguridad = dynamic_cast<Seguridad*>(s))
+        {
+            cout<<"El Software solo esta autorizado para administradores";
+            return false;
+        }
+    }
     if(s->getAge()<18)
     {
         cout<<"menor18"<<endl;
